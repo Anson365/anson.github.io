@@ -2,7 +2,7 @@
 title: 大连之行
 date: 2017-05-22 22:54:02
 category: life
-tags: [life,旅行]
+tags: [生活,旅行]
 ---
 
 趁着好基友毕业前夕，去大连浪了一波。  

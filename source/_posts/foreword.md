@@ -2,7 +2,7 @@
 title: The beginning or the end
 date: 2017-05-17 15:48:57
 category: life
-tags: [life,work,study]
+tags: [生活,工作,学习]
 ---
 ## The end  
 

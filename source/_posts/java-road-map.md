@@ -2,7 +2,7 @@
 title: java后端学习知识点梳理
 date: 2017-05-18 10:54:59
 categories: study
-tags: [java,study,后端,中间件,数据库]
+tags: [java,学习,后端,中间件,数据库]
 ---
 
 ## 概述
