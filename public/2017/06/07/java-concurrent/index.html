@@ -7,32 +7,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>大连之行 | Anson</title>
+  <title>java concurrent解析 | Anson</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="生活,旅行," />
+    <meta name="keywords" content="Anson,后端,java" />
   
 
-  <meta name="description" content="趁着好基友毕业前夕，去大连浪了一波。大连这座城市，在我之前的印象中就是薄xl和万达的发家地。然后就传说中的绿化很好，很赞！抵达大连已经早上八点多了，一出火车站给人的感觉十分的清爽。感觉整洁的街道一路绿树掩映，路边偶尔的鲜花点缀，丝毫没有已到五月中旬的感觉。 在好基友的导游下，第一站我们来到了星海广场听说之前广场中央的华表由于bo的倒台而拆除了另外大连建市一百年的金色脚印也被铲除除了这个之外 周围的">
-<meta name="keywords" content="生活,旅行">
+  <meta name="description" content="Executor :抽象的Runnable任务的执行者，提供一个excute方法ExecutorService :抽象的线程池管理者，包含三种状态：运行、关闭、终止。当调用了shutdown()方法时，便进入了关闭状态，ExcecutorService不在接受新的任务，当已经提交的任务完成后便达到终止状态。ReentrantLock :一个可重入得Lock代码层面的并发锁，需手动释放Future">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大连之行">
-<meta property="og:url" content="http://anson666.top/2017/05/22/daling-travelling/index.html">
+<meta property="og:title" content="java concurrent解析">
+<meta property="og:url" content="http://anson666.top/2017/06/07/java-concurrent/index.html">
 <meta property="og:site_name" content="Anson">
-<meta property="og:description" content="趁着好基友毕业前夕，去大连浪了一波。大连这座城市，在我之前的印象中就是薄xl和万达的发家地。然后就传说中的绿化很好，很赞！抵达大连已经早上八点多了，一出火车站给人的感觉十分的清爽。感觉整洁的街道一路绿树掩映，路边偶尔的鲜花点缀，丝毫没有已到五月中旬的感觉。 在好基友的导游下，第一站我们来到了星海广场听说之前广场中央的华表由于bo的倒台而拆除了另外大连建市一百年的金色脚印也被铲除除了这个之外 周围的">
-<meta property="og:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_53g3l98j5d4dfaie3al8k446a42el_12168x3824.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s2.mogucdn.com/mlcdn/c45406/170526_33hi3hce87922fadfi7f9e0kf6304_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_0d6073k5119acjhhjib7cg9091bag_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_3kf14k5hbd50fe1l8gge71e6d22cd_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_7dfj89j6lk92aig0aj93g5dc256ea_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s2.mogucdn.com/mlcdn/c45406/170526_5g4815b8e161fg1ja14lg8h0g140c_1280x960.jpg_500x9999.v1c7E.jpg">
+<meta property="og:description" content="Executor :抽象的Runnable任务的执行者，提供一个excute方法ExecutorService :抽象的线程池管理者，包含三种状态：运行、关闭、终止。当调用了shutdown()方法时，便进入了关闭状态，ExcecutorService不在接受新的任务，当已经提交的任务完成后便达到终止状态。ReentrantLock :一个可重入得Lock代码层面的并发锁，需手动释放Future">
 <meta property="og:updated_time" content="2017-06-07T15:29:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大连之行">
-<meta name="twitter:description" content="趁着好基友毕业前夕，去大连浪了一波。大连这座城市，在我之前的印象中就是薄xl和万达的发家地。然后就传说中的绿化很好，很赞！抵达大连已经早上八点多了，一出火车站给人的感觉十分的清爽。感觉整洁的街道一路绿树掩映，路边偶尔的鲜花点缀，丝毫没有已到五月中旬的感觉。 在好基友的导游下，第一站我们来到了星海广场听说之前广场中央的华表由于bo的倒台而拆除了另外大连建市一百年的金色脚印也被铲除除了这个之外 周围的">
-<meta name="twitter:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_53g3l98j5d4dfaie3al8k446a42el_12168x3824.jpg_500x9999.v1c7E.jpg">
+<meta name="twitter:title" content="java concurrent解析">
+<meta name="twitter:description" content="Executor :抽象的Runnable任务的执行者，提供一个excute方法ExecutorService :抽象的线程池管理者，包含三种状态：运行、关闭、终止。当调用了shutdown()方法时，便进入了关闭状态，ExcecutorService不在接受新的任务，当已经提交的任务完成后便达到终止状态。ReentrantLock :一个可重入得Lock代码层面的并发锁，需手动释放Future">
 
   
 
@@ -145,14 +137,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-daling-travelling" class="article article-type-post" itemprop="blogPost">
+   <article id="post-java-concurrent" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">大连之行</h1>
+    <h1 class="post-title">java concurrent解析</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.05.22</span>
+        <span>2017.06.07</span>
       </span>
 
       
@@ -163,17 +155,12 @@
       
 
       
-  <span class="article-category">
-    <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/life/">life</a>
-  </span>
-
 
 
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://anson666.top/2017/05/22/daling-travelling/#disqus_thread"></a>
+          <a href="http://anson666.top/2017/06/07/java-concurrent/#disqus_thread"></a>
         </span>
       
 
@@ -192,18 +179,7 @@
 
   <div class="article-content">
     
-      <p>趁着好基友毕业前夕，去大连浪了一波。<br>大连这座城市，在我之前的印象中就是薄xl和万达的发家地。然后就传说中的绿化很好，很赞！<br>抵达大连已经早上八点多了，<br>一出火车站给人的感觉十分的清爽。感觉整洁的街道<br>一路绿树掩映，路边偶尔的鲜花点缀，丝毫没有已到五月中旬的感觉。</p>
-<p>在好基友的导游下，第一站我们来到了星海广场<br>听说之前广场中央的华表由于bo的倒台而拆除了<br>另外大连建市一百年的金色脚印也被铲除<br>除了这个之外 周围的一切都看起来这么的祥和<br><img src="http://s11.mogucdn.com/mlcdn/c45406/170526_53g3l98j5d4dfaie3al8k446a42el_12168x3824.jpg_500x9999.v1c7E.jpg" alt="星海广场"></p>
-<p>一群海鸥在熙攘的人群头上盘旋，远处的大桥看起来是如此的刺眼。<br>大好的海景视野就这么给拦腰斩断了。  </p>
-<p>恰逢大连举办第十七届国际徒步节，于是跟随大部队。<br>我们也开始了30多公里的沿海滨路徒步而整个大连的景色都集中在这条路上  </p>
-<p>滨海路沿线风景<br><img src="http://s2.mogucdn.com/mlcdn/c45406/170526_33hi3hce87922fadfi7f9e0kf6304_1280x960.jpg_500x9999.v1c7E.jpg" alt="滨海西路"></p>
-<p>退役的辽宁舰<br><img src="http://s11.mogucdn.com/mlcdn/c45406/170526_0d6073k5119acjhhjib7cg9091bag_1280x960.jpg_500x9999.v1c7E.jpg" alt="辽宁舰"></p>
-<p>抓拍的海鸥<br><img src="http://s11.mogucdn.com/mlcdn/c45406/170526_3kf14k5hbd50fe1l8gge71e6d22cd_1280x960.jpg_500x9999.v1c7E.jpg" alt="海鸥"></p>
-<p>海边的小鹅暖石<br><img src="http://s11.mogucdn.com/mlcdn/c45406/170526_7dfj89j6lk92aig0aj93g5dc256ea_1280x960.jpg_500x9999.v1c7E.jpg" alt="鹅暖石"></p>
-<p>我们就这样一步一步，边走边逗留，从九点10分左右出发，一直走到了下午的5点半。沿着滨海西路、滨海中路，最后终于到了滨海东路。<br>基友的脚也起泡了，实在是太累了。于是我们就此作罢，开始往回走。  </p>
-<p>最后夜宿星海广场，晚上也没什么活动，倒头就睡着了</p>
-<p>第二天我们启程前往造船厂，远观了正在建造中的中国第一艘国产航母<br><img src="http://s2.mogucdn.com/mlcdn/c45406/170526_5g4815b8e161fg1ja14lg8h0g140c_1280x960.jpg_500x9999.v1c7E.jpg" alt="国产航母"></p>
-<p>就此两天的大连之行就基本结束了。</p>
+      <p><strong><em>Executor</em></strong> :抽象的Runnable任务的执行者，提供一个excute方法<br><strong><em>ExecutorService</em></strong> :抽象的线程池管理者，包含三种状态：运行、关闭、终止。当调用了shutdown()方法时，便进入了关闭状态，ExcecutorService<br>不在接受新的任务，当已经提交的任务完成后便达到终止状态。<br><strong><em>ReentrantLock</em></strong> :一个可重入得Lock代码层面的并发锁，需手动释放<br><strong><em>Future</em></strong> :一个Callable线程执行结束后返回的结果，提供isDone检查call方法是否执行完毕，cancel终止线程<br><strong><em>BlockingQueue</em></strong> :阻塞队列，常见ArrayBlockQueue,LinkedBlockQueue前者有容量限制，后者没有限制  </p>
 
     
   </div>
@@ -214,10 +190,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/05/18/java-road-map/">
+    <a class="show pull-left" href="/2017/05/28/xiaomi-interview/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/05/28/xiaomi-interview/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -320,7 +296,7 @@
   <script>
     var disqus_shortname = 'anson';
     
-    var disqus_url = 'http://anson666.top/2017/05/22/daling-travelling/';
+    var disqus_url = 'http://anson666.top/2017/06/07/java-concurrent/';
     
     (function(){
       var dsq = document.createElement('script');

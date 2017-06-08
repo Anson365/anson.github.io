@@ -15,17 +15,17 @@
     <meta name="keywords" content="工作,面试,总结," />
   
 
-  <meta name="description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中有的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方">
+  <meta name="description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方式">
 <meta name="keywords" content="工作,面试,总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小米面试总结">
 <meta property="og:url" content="http://anson666.top/2017/05/28/xiaomi-interview/index.html">
 <meta property="og:site_name" content="Anson">
-<meta property="og:description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中有的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方">
-<meta property="og:updated_time" content="2017-05-28T13:47:56.000Z">
+<meta property="og:description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方式">
+<meta property="og:updated_time" content="2017-06-07T15:29:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小米面试总结">
-<meta name="twitter:description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中有的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方">
+<meta name="twitter:description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方式">
 
   
 
@@ -136,8 +136,8 @@
 
 
   <div id="toc" class="toc-article">
-    <strong class="toc-title">Posts List</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类中有的方法"><span class="toc-text">Object类中有的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保证线程安全的方式有哪些以及他们之间的区别？"><span class="toc-text">保证线程安全的方式有哪些以及他们之间的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写一个生产消费模型"><span class="toc-text">写一个生产消费模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分查找递归及非递归写法"><span class="toc-text">二分查找递归及非递归写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用两个stack模拟一个queue"><span class="toc-text">用两个stack模拟一个queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的谈谈jvm"><span class="toc-text">简单的谈谈jvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目中遇到的难点及解决方式"><span class="toc-text">项目中遇到的难点及解决方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a>
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类中的方法"><span class="toc-text">Object类中的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保证线程安全的方式有哪些以及他们之间的区别？"><span class="toc-text">保证线程安全的方式有哪些以及他们之间的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写一个生产消费模型"><span class="toc-text">写一个生产消费模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分查找递归及非递归写法"><span class="toc-text">二分查找递归及非递归写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用两个stack模拟一个queue"><span class="toc-text">用两个stack模拟一个queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的谈谈jvm"><span class="toc-text">简单的谈谈jvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目中遇到的难点及解决方式"><span class="toc-text">项目中遇到的难点及解决方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a>
   </div>
 
 
@@ -191,7 +191,7 @@
   <div class="article-content">
     
       <p>上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。</p>
-<h3 id="Object类中有的方法"><a href="#Object类中有的方法" class="headerlink" title="Object类中有的方法"></a>Object类中有的方法</h3><ul>
+<h3 id="Object类中的方法"><a href="#Object类中的方法" class="headerlink" title="Object类中的方法"></a>Object类中的方法</h3><ul>
 <li><p>+equals():Boolean<br>原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致</p>
 </li>
 <li><p>+hashcode():int<br>通过散列算法计算对象的hash值<br>拓展：解决hash冲突的方式有哪些？</p>
@@ -227,7 +227,7 @@
     <a class="show pull-left" href="/2017/05/22/daling-travelling/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="hide pull-right" href="/">
+    <a class="show pull-right" href="/2017/06/07/java-concurrent/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -249,7 +249,7 @@
   <span id="cover" class="cover hide"></span>
   <div id="modal-dialog" class="modal-dialog hide-dialog">
     <div class="modal-header">
-      <span id="close" class="btn-close">Close</span>
+      <span id="close" class="btn-close">关闭</span>
     </div>
     <hr>
     <div class="modal-body">
