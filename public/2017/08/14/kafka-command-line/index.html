@@ -7,32 +7,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>大连之行 | Anson</title>
+  <title>kafka常用指令集 | Anson</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="生活,旅行," />
+    <meta name="keywords" content="学习,后端,中间件,大数据,kafka," />
   
 
-  <meta name="description" content="趁着好基友毕业前夕，去大连浪了一波。大连这座城市，在我之前的印象中就是薄xl和万达的发家地。然后就传说中的绿化很好，很赞！抵达大连已经早上八点多了，一出火车站给人的感觉十分的清爽。感觉整洁的街道一路绿树掩映，路边偶尔的鲜花点缀，丝毫没有已到五月中旬的感觉。 在好基友的导游下，第一站我们来到了星海广场听说之前广场中央的华表由于bo的倒台而拆除了另外大连建市一百年的金色脚印也被铲除除了这个之外 周围的">
-<meta name="keywords" content="生活,旅行">
+  <meta name="description" content="在学习kafka的过程中，经常会用到一些console命令行。现在对这些命令行进行一个简单的汇总，方便今后查阅。   启动zookeeper1bin/zookeeper-server-start.sh config/zookeeper.properties 启动broker1bin/kafka-server-start.sh config/server.properties 创建TOPIC1b">
+<meta name="keywords" content="学习,后端,中间件,大数据,kafka">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大连之行">
-<meta property="og:url" content="http://anson666.top/2017/05/22/daling-travelling/index.html">
+<meta property="og:title" content="kafka常用指令集">
+<meta property="og:url" content="http://anson666.top/2017/08/14/kafka-command-line/index.html">
 <meta property="og:site_name" content="Anson">
-<meta property="og:description" content="趁着好基友毕业前夕，去大连浪了一波。大连这座城市，在我之前的印象中就是薄xl和万达的发家地。然后就传说中的绿化很好，很赞！抵达大连已经早上八点多了，一出火车站给人的感觉十分的清爽。感觉整洁的街道一路绿树掩映，路边偶尔的鲜花点缀，丝毫没有已到五月中旬的感觉。 在好基友的导游下，第一站我们来到了星海广场听说之前广场中央的华表由于bo的倒台而拆除了另外大连建市一百年的金色脚印也被铲除除了这个之外 周围的">
-<meta property="og:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_53g3l98j5d4dfaie3al8k446a42el_12168x3824.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s2.mogucdn.com/mlcdn/c45406/170526_33hi3hce87922fadfi7f9e0kf6304_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_0d6073k5119acjhhjib7cg9091bag_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_3kf14k5hbd50fe1l8gge71e6d22cd_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_7dfj89j6lk92aig0aj93g5dc256ea_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:image" content="http://s2.mogucdn.com/mlcdn/c45406/170526_5g4815b8e161fg1ja14lg8h0g140c_1280x960.jpg_500x9999.v1c7E.jpg">
-<meta property="og:updated_time" content="2017-08-13T15:34:11.000Z">
+<meta property="og:description" content="在学习kafka的过程中，经常会用到一些console命令行。现在对这些命令行进行一个简单的汇总，方便今后查阅。   启动zookeeper1bin/zookeeper-server-start.sh config/zookeeper.properties 启动broker1bin/kafka-server-start.sh config/server.properties 创建TOPIC1b">
+<meta property="og:updated_time" content="2017-08-14T15:06:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大连之行">
-<meta name="twitter:description" content="趁着好基友毕业前夕，去大连浪了一波。大连这座城市，在我之前的印象中就是薄xl和万达的发家地。然后就传说中的绿化很好，很赞！抵达大连已经早上八点多了，一出火车站给人的感觉十分的清爽。感觉整洁的街道一路绿树掩映，路边偶尔的鲜花点缀，丝毫没有已到五月中旬的感觉。 在好基友的导游下，第一站我们来到了星海广场听说之前广场中央的华表由于bo的倒台而拆除了另外大连建市一百年的金色脚印也被铲除除了这个之外 周围的">
-<meta name="twitter:image" content="http://s11.mogucdn.com/mlcdn/c45406/170526_53g3l98j5d4dfaie3al8k446a42el_12168x3824.jpg_500x9999.v1c7E.jpg">
+<meta name="twitter:title" content="kafka常用指令集">
+<meta name="twitter:description" content="在学习kafka的过程中，经常会用到一些console命令行。现在对这些命令行进行一个简单的汇总，方便今后查阅。   启动zookeeper1bin/zookeeper-server-start.sh config/zookeeper.properties 启动broker1bin/kafka-server-start.sh config/server.properties 创建TOPIC1b">
 
   
 
@@ -142,17 +135,22 @@
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动zookeeper"><span class="toc-text">启动zookeeper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动broker"><span class="toc-text">启动broker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建TOPIC"><span class="toc-text">创建TOPIC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看topic-list"><span class="toc-text">查看topic list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#console-producer"><span class="toc-text">console producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#console-producer-with-output-info"><span class="toc-text">console producer with output info</span></a></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
-   <article id="post-daling-travelling" class="article article-type-post" itemprop="blogPost">
+   <article id="post-kafka-command-line" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">大连之行</h1>
+    <h1 class="post-title">kafka常用指令集</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.05.22</span>
+        <span>2017.08.14</span>
       </span>
 
       
@@ -165,7 +163,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/life/">life</a>
+    <a class="article-category-link" href="/categories/study/">study</a>
   </span>
 
 
@@ -173,7 +171,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://anson666.top/2017/05/22/daling-travelling/#disqus_thread"></a>
+          <a href="http://anson666.top/2017/08/14/kafka-command-line/#disqus_thread"></a>
         </span>
       
 
@@ -192,18 +190,13 @@
 
   <div class="article-content">
     
-      <p>趁着好基友毕业前夕，去大连浪了一波。<br>大连这座城市，在我之前的印象中就是薄xl和万达的发家地。然后就传说中的绿化很好，很赞！<br>抵达大连已经早上八点多了，<br>一出火车站给人的感觉十分的清爽。感觉整洁的街道<br>一路绿树掩映，路边偶尔的鲜花点缀，丝毫没有已到五月中旬的感觉。</p>
-<p>在好基友的导游下，第一站我们来到了星海广场<br>听说之前广场中央的华表由于bo的倒台而拆除了<br>另外大连建市一百年的金色脚印也被铲除<br>除了这个之外 周围的一切都看起来这么的祥和<br><img src="http://s11.mogucdn.com/mlcdn/c45406/170526_53g3l98j5d4dfaie3al8k446a42el_12168x3824.jpg_500x9999.v1c7E.jpg" alt="星海广场"></p>
-<p>一群海鸥在熙攘的人群头上盘旋，远处的大桥看起来是如此的刺眼。<br>大好的海景视野就这么给拦腰斩断了。  </p>
-<p>恰逢大连举办第十七届国际徒步节，于是跟随大部队。<br>我们也开始了30多公里的沿海滨路徒步而整个大连的景色都集中在这条路上  </p>
-<p>滨海路沿线风景<br><img src="http://s2.mogucdn.com/mlcdn/c45406/170526_33hi3hce87922fadfi7f9e0kf6304_1280x960.jpg_500x9999.v1c7E.jpg" alt="滨海西路"></p>
-<p>退役的辽宁舰<br><img src="http://s11.mogucdn.com/mlcdn/c45406/170526_0d6073k5119acjhhjib7cg9091bag_1280x960.jpg_500x9999.v1c7E.jpg" alt="辽宁舰"></p>
-<p>抓拍的海鸥<br><img src="http://s11.mogucdn.com/mlcdn/c45406/170526_3kf14k5hbd50fe1l8gge71e6d22cd_1280x960.jpg_500x9999.v1c7E.jpg" alt="海鸥"></p>
-<p>海边的小鹅暖石<br><img src="http://s11.mogucdn.com/mlcdn/c45406/170526_7dfj89j6lk92aig0aj93g5dc256ea_1280x960.jpg_500x9999.v1c7E.jpg" alt="鹅暖石"></p>
-<p>我们就这样一步一步，边走边逗留，从九点10分左右出发，一直走到了下午的5点半。沿着滨海西路、滨海中路，最后终于到了滨海东路。<br>基友的脚也起泡了，实在是太累了。于是我们就此作罢，开始往回走。  </p>
-<p>最后夜宿星海广场，晚上也没什么活动，倒头就睡着了</p>
-<p>第二天我们启程前往造船厂，远观了正在建造中的中国第一艘国产航母<br><img src="http://s2.mogucdn.com/mlcdn/c45406/170526_5g4815b8e161fg1ja14lg8h0g140c_1280x960.jpg_500x9999.v1c7E.jpg" alt="国产航母"></p>
-<p>就此两天的大连之行就基本结束了。</p>
+      <p>  在学习kafka的过程中，经常会用到一些console命令行。现在对这些命令行进行一个简单的汇总，方便今后查阅。  </p>
+<h3 id="启动zookeeper"><a href="#启动zookeeper" class="headerlink" title="启动zookeeper"></a>启动zookeeper</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</div></pre></td></tr></table></figure>
+<h3 id="启动broker"><a href="#启动broker" class="headerlink" title="启动broker"></a>启动broker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-server-start.sh config/server.properties</div></pre></td></tr></table></figure>
+<h3 id="创建TOPIC"><a href="#创建TOPIC" class="headerlink" title="创建TOPIC"></a>创建TOPIC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</div></pre></td></tr></table></figure>
+<h3 id="查看topic-list"><a href="#查看topic-list" class="headerlink" title="查看topic list"></a>查看topic list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</div></pre></td></tr></table></figure>
+<h3 id="console-producer"><a href="#console-producer" class="headerlink" title="console producer"></a>console producer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test</div></pre></td></tr></table></figure>
+<h3 id="console-producer-with-output-info"><a href="#console-producer-with-output-info" class="headerlink" title="console producer with output info"></a>console producer with output info</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-verifiable-producer.sh --topic test --max-messages 200000 --broker-list localhost:9092</div></pre></td></tr></table></figure>
 
     
   </div>
@@ -214,10 +207,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/05/18/java-road-map/">
+    <a class="show pull-left" href="/2017/07/10/choice/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/05/28/xiaomi-interview/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -320,7 +313,7 @@
   <script>
     var disqus_shortname = 'anson';
     
-    var disqus_url = 'http://anson666.top/2017/05/22/daling-travelling/';
+    var disqus_url = 'http://anson666.top/2017/08/14/kafka-command-line/';
     
     (function(){
       var dsq = document.createElement('script');
