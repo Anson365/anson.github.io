@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>小米面试总结 | Anson</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="总结,工作,面试," />
+  
+
+  <meta name="description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方式">
+<meta name="keywords" content="总结,工作,面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小米面试总结">
+<meta property="og:url" content="http://anson666.top/2017/05/28/xiaomi-interview/index.html">
+<meta property="og:site_name" content="Anson">
+<meta property="og:description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方式">
+<meta property="og:updated_time" content="2017-08-13T15:34:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小米面试总结">
+<meta name="twitter:description" content="上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。 Object类中的方法 +equals():Boolean原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致  +hashcode():int通过散列算法计算对象的hash值拓展：解决hash冲突的方式有哪些？  +toString():String返回对象的字符串表示方式">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbe6" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+
+  
+
+
+  
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">魔方</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">魔方</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object类中的方法"><span class="toc-text">Object类中的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保证线程安全的方式有哪些以及他们之间的区别？"><span class="toc-text">保证线程安全的方式有哪些以及他们之间的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写一个生产消费模型"><span class="toc-text">写一个生产消费模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分查找递归及非递归写法"><span class="toc-text">二分查找递归及非递归写法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用两个stack模拟一个queue"><span class="toc-text">用两个stack模拟一个queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的谈谈jvm"><span class="toc-text">简单的谈谈jvm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目中遇到的难点及解决方式"><span class="toc-text">项目中遇到的难点及解决方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-xiaomi-interview" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">小米面试总结</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.05.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>Anson</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/summarize/">summarize</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="http://anson666.top/2017/05/28/xiaomi-interview/#disqus_thread"></a>
+        </span>
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>上周面了一下小米的金融，不管结果如何，觉得还是有必要对其中涉及到知识点及问题进行总结。</p>
+<h3 id="Object类中的方法"><a href="#Object类中的方法" class="headerlink" title="Object类中的方法"></a>Object类中的方法</h3><ul>
+<li><p>+equals():Boolean<br>原生的equals比较的是两个对象的引用是否相同，换而言之就是比较对象的内存地址是否一致</p>
+</li>
+<li><p>+hashcode():int<br>通过散列算法计算对象的hash值<br>拓展：解决hash冲突的方式有哪些？</p>
+</li>
+<li><p>+toString():String<br>返回对象的字符串表示方式</p>
+</li>
+<li><p>+wait()/wait(long time)/wait(long time,int nanos):void<br>使当前线程让出CPU资源进入等待状态，<br>当其他线程调用该对象的notify/notifyAll方法时跳出等待状态</p>
+</li>
+<li><p>+notify():void<br>唤醒监听这个对象的一个线程</p>
+</li>
+<li><p>+notifyAll():void<br>唤醒监听这个对象的所有线程</p>
+</li>
+<li><p>+getClass():Class<br>返回当前对象的runtime class</p>
+</li>
+<li><p>clone:Object<br>返回当前对象的副本，使浅克隆。深克隆的话可以用序列化及反序列化方式</p>
+</li>
+<li><p>finalize:void<br>当对象将被垃圾收集器回收的时候，阻止垃圾回收器回收，该方法只能使对象存活一次 </p>
+</li>
+</ul>
+<h3 id="保证线程安全的方式有哪些以及他们之间的区别？"><a href="#保证线程安全的方式有哪些以及他们之间的区别？" class="headerlink" title="保证线程安全的方式有哪些以及他们之间的区别？"></a>保证线程安全的方式有哪些以及他们之间的区别？</h3><p> 目前保证线程安全的三种方式<br>    1.用volatile修饰的变量<br>    2.用Reetrantlock 即lock和unlock修饰的代码块<br>    3.用synchronized修饰的方法或者代码块<br> volatile:<br>    使用该关键字修饰的，访问变量时告诉jvm需要从主内存中获取，保证可见性，不会造成线程阻塞；<br> synchronized:<br>    是jvm级的安全锁，保证可见性及原子性，使用时如果发生中断异常会主动释放当前锁，会造成线程阻塞；<br> Reetrantlock:<br>    代码级安全锁，保证可见性及原子性，使用时不会主动释放当前锁，需要手动释放，会造成线程阻塞</p>
+<p> 1）用法区别<br>     synchronized(隐式锁)：在需要同步的对象中加入此控制，synchronized可以加在方法上，也可以加在特定代码块中，括号中表示需要锁的对象。<br>     lock（显示锁）：需要显示指定起始位置和终止位置。一般使用ReentrantLock类做为锁，多个线程中必须要使用一个ReentrantLock类做为对 象才能保证锁的生效。且在加锁和解锁处需要通过lock()和unlock()显示指出。所以一般会在finally块中写unlock()以防死锁。<br> 2）synchronized和lock性能区别<br>     synchronized是托管给JVM执行的，而lock是java写的控制锁的代码。<br>     synchronized采用的是CPU悲观锁机制，即线程获得的是独占锁。独占锁意味着其 他线程只能依靠阻塞来等待线程释放锁。而在CPU转换线程阻塞时会引起线程上下文切换，当有很多线程竞争锁的时候，会引起CPU频繁的上下文切换导致效率很低。<br>     Lock用的是乐观锁方式。所谓乐观锁就是，每次不加锁而是假设没有冲突而去完成某项操作，如果因为冲突失败就重试，直到成功为止。乐观锁实现的机制就 是CAS操作（Compare and Swap）。<br> 3）synchronized和lock用途区别<br>     synchronized原语和ReentrantLock在一般情况下没有什么区别，但是在非常复杂的同步应用中，请考虑使用ReentrantLock，特别是遇到下面2种需求的时候。<br>     1.某个线程在等待一个锁的控制权的这段时间需要中断<br>     2.需要分开处理一些wait-notify，ReentrantLock里面的Condition应用，能够控制notify哪个线程<br>     3.具有公平锁功能，每个到来的线程都将排队等候、</p>
+<h3 id="写一个生产消费模型"><a href="#写一个生产消费模型" class="headerlink" title="写一个生产消费模型"></a>写一个生产消费模型</h3><h3 id="二分查找递归及非递归写法"><a href="#二分查找递归及非递归写法" class="headerlink" title="二分查找递归及非递归写法"></a>二分查找递归及非递归写法</h3><h3 id="用两个stack模拟一个queue"><a href="#用两个stack模拟一个queue" class="headerlink" title="用两个stack模拟一个queue"></a>用两个stack模拟一个queue</h3><h3 id="简单的谈谈jvm"><a href="#简单的谈谈jvm" class="headerlink" title="简单的谈谈jvm"></a>简单的谈谈jvm</h3><h3 id="项目中遇到的难点及解决方式"><a href="#项目中遇到的难点及解决方式" class="headerlink" title="项目中遇到的难点及解决方式"></a>项目中遇到的难点及解决方式</h3><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p> 整个面试的过程中，发现对基础的知识的提问相对于自己参与项目的提问整体时间所占比例大幅下降<br> 由于更加专业化，面试官在提问的过程中也着重于他们自己的业务。所以整体感觉，<br> 如果他们问的不是你自己感兴趣或者职业侧重点，不管是不是当前阶段的知识盲区，<br> 最后能不能拿到offer都可以在某种程度上作为自己选择接不接offer的一个参考点。</p>
+
+    
+  </div>
+</article>
+
+
+   
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2017/05/22/daling-travelling/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2017/06/07/java-concurrent/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'anson';
+    
+    var disqus_url = 'http://anson666.top/2017/05/28/xiaomi-interview/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//anson.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+    
+
+    
+	
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
