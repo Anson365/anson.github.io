@@ -7,25 +7,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>kafka常用指令集 | Anson</title>
+  <title>第一次马拉松 | Anson</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="学习,后端,中间件,大数据,kafka," />
+    <meta name="keywords" content="马拉松," />
   
 
-  <meta name="description" content="在学习kafka的过程中，经常会用到一些console命令行。现在对这些命令行进行一个简单的汇总，方便今后查阅。   启动zookeeper1bin/zookeeper-server-start.sh config/zookeeper.properties 启动broker1bin/kafka-server-start.sh config/server.properties 创建TOPIC1b">
-<meta name="keywords" content="学习,后端,中间件,大数据,kafka">
+  <meta name="description" content="2017年8月19日，一路的舟车劳顿，来到了美丽的鄂尔多斯，  迎来了人生第一个半程马拉松。。。     虽然之前有过线下马拉松的经历，但是鄂尔多斯的高原环境，加上紧张激烈的比赛  氛围，使本次马拉松的难度变得异常艰辛。     15公里之后，开始喘着粗气，原本轻盈的步伐也变得无比的沉重。小腿也变得  无比的酸疼，跑步的汗水，伴随着草原的冷风迅速蒸发，全身开始发冷。  后面的队友开始渐渐超过我">
+<meta name="keywords" content="马拉松">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kafka常用指令集">
-<meta property="og:url" content="http://anson666.top/2017/08/14/kafka-command-line/index.html">
+<meta property="og:title" content="第一次马拉松">
+<meta property="og:url" content="http://anson666.top/2017/08/19/first-marathon/index.html">
 <meta property="og:site_name" content="Anson">
-<meta property="og:description" content="在学习kafka的过程中，经常会用到一些console命令行。现在对这些命令行进行一个简单的汇总，方便今后查阅。   启动zookeeper1bin/zookeeper-server-start.sh config/zookeeper.properties 启动broker1bin/kafka-server-start.sh config/server.properties 创建TOPIC1b">
-<meta property="og:updated_time" content="2017-08-14T15:06:21.000Z">
+<meta property="og:description" content="2017年8月19日，一路的舟车劳顿，来到了美丽的鄂尔多斯，  迎来了人生第一个半程马拉松。。。     虽然之前有过线下马拉松的经历，但是鄂尔多斯的高原环境，加上紧张激烈的比赛  氛围，使本次马拉松的难度变得异常艰辛。     15公里之后，开始喘着粗气，原本轻盈的步伐也变得无比的沉重。小腿也变得  无比的酸疼，跑步的汗水，伴随着草原的冷风迅速蒸发，全身开始发冷。  后面的队友开始渐渐超过我">
+<meta property="og:image" content="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG36.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim">
+<meta property="og:image" content="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG38.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim">
+<meta property="og:image" content="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG37.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim">
+<meta property="og:image" content="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG39.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim">
+<meta property="og:updated_time" content="2017-10-07T08:41:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kafka常用指令集">
-<meta name="twitter:description" content="在学习kafka的过程中，经常会用到一些console命令行。现在对这些命令行进行一个简单的汇总，方便今后查阅。   启动zookeeper1bin/zookeeper-server-start.sh config/zookeeper.properties 启动broker1bin/kafka-server-start.sh config/server.properties 创建TOPIC1b">
+<meta name="twitter:title" content="第一次马拉松">
+<meta name="twitter:description" content="2017年8月19日，一路的舟车劳顿，来到了美丽的鄂尔多斯，  迎来了人生第一个半程马拉松。。。     虽然之前有过线下马拉松的经历，但是鄂尔多斯的高原环境，加上紧张激烈的比赛  氛围，使本次马拉松的难度变得异常艰辛。     15公里之后，开始喘着粗气，原本轻盈的步伐也变得无比的沉重。小腿也变得  无比的酸疼，跑步的汗水，伴随着草原的冷风迅速蒸发，全身开始发冷。  后面的队友开始渐渐超过我">
+<meta name="twitter:image" content="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG36.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim">
 
   
 
@@ -135,22 +140,17 @@
 </div>
 
 
-  <div id="toc" class="toc-article">
-    <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动zookeeper"><span class="toc-text">启动zookeeper</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动broker"><span class="toc-text">启动broker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建TOPIC"><span class="toc-text">创建TOPIC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看topic-list"><span class="toc-text">查看topic list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#console-producer"><span class="toc-text">console producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#console-producer-with-output-info"><span class="toc-text">console producer with output info</span></a></li></ol>
-  </div>
-
 
 
 <div class="content content-post CENTER">
-   <article id="post-kafka-command-line" class="article article-type-post" itemprop="blogPost">
+   <article id="post-first-marathon" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">kafka常用指令集</h1>
+    <h1 class="post-title">第一次马拉松</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2017.08.14</span>
+        <span>2017.08.19</span>
       </span>
 
       
@@ -163,7 +163,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/study/">study</a>
+    <a class="article-category-link" href="/categories/life/">life</a>
   </span>
 
 
@@ -171,7 +171,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="http://anson666.top/2017/08/14/kafka-command-line/#disqus_thread"></a>
+          <a href="http://anson666.top/2017/08/19/first-marathon/#disqus_thread"></a>
         </span>
       
 
@@ -190,13 +190,11 @@
 
   <div class="article-content">
     
-      <p>  在学习kafka的过程中，经常会用到一些console命令行。现在对这些命令行进行一个简单的汇总，方便今后查阅。  </p>
-<h3 id="启动zookeeper"><a href="#启动zookeeper" class="headerlink" title="启动zookeeper"></a>启动zookeeper</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</div></pre></td></tr></table></figure>
-<h3 id="启动broker"><a href="#启动broker" class="headerlink" title="启动broker"></a>启动broker</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-server-start.sh config/server.properties</div></pre></td></tr></table></figure>
-<h3 id="创建TOPIC"><a href="#创建TOPIC" class="headerlink" title="创建TOPIC"></a>创建TOPIC</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</div></pre></td></tr></table></figure>
-<h3 id="查看topic-list"><a href="#查看topic-list" class="headerlink" title="查看topic list"></a>查看topic list</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</div></pre></td></tr></table></figure>
-<h3 id="console-producer"><a href="#console-producer" class="headerlink" title="console producer"></a>console producer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test</div></pre></td></tr></table></figure>
-<h3 id="console-producer-with-output-info"><a href="#console-producer-with-output-info" class="headerlink" title="console producer with output info"></a>console producer with output info</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/kafka-verifiable-producer.sh --topic test --max-messages 200000 --broker-list localhost:9092</div></pre></td></tr></table></figure>
+      <p>  2017年8月19日，一路的舟车劳顿，来到了美丽的鄂尔多斯，<br>  迎来了人生第一个半程马拉松。。。  </p>
+<p>  虽然之前有过线下马拉松的经历，但是鄂尔多斯的高原环境，加上紧张激烈的比赛<br>  氛围，使本次马拉松的难度变得异常艰辛。  </p>
+<p>  15公里之后，开始喘着粗气，原本轻盈的步伐也变得无比的沉重。小腿也变得<br>  无比的酸疼，跑步的汗水，伴随着草原的冷风迅速蒸发，全身开始发冷。<br>  后面的队友开始渐渐超过我。。。  </p>
+<p>  我知道我的极限快到了，但是我不能放弃！<br>  我的首次马拉松，不能半途而废！<br>  我的每次迈步，都将是我人生的新的高度！<br>  坚持下去，冲过终点的那一瞬间，我肯定会感激现在不曾放弃的我！  </p>
+<p>  终于20公里！800米倒计时，400米，终点！<br>  1：56：51 顺利完赛！<br>  开始，加油！<br>  <img src="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG36.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim" alt="起点"><br>  <img src="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG38.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim" alt="大桥"><br>  <img src="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG37.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim" alt="大桥"><br>  <img src="http://oxg1ehxo9.bkt.clouddn.com/WechatIMG39.jpeg?imageMogr2/auto-orient/thumbnail/500x/format/jpg/blur/1x0/quality/100|imageslim" alt="完赛奖牌">  </p>
 
     
   </div>
@@ -207,10 +205,10 @@
 
    
   <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2017/07/10/choice/">
+    <a class="show pull-left" href="/2017/08/14/kafka-command-line/">
         <i class="icon icon-angle-left"></i>
     </a>
-    <a class="show pull-right" href="/2017/08/19/first-marathon/">
+    <a class="hide pull-right" href="/">
         <i class="icon icon-angle-right"></i>
     </a>
   </div>
@@ -313,7 +311,7 @@
   <script>
     var disqus_shortname = 'anson';
     
-    var disqus_url = 'http://anson666.top/2017/08/14/kafka-command-line/';
+    var disqus_url = 'http://anson666.top/2017/08/19/first-marathon/';
     
     (function(){
       var dsq = document.createElement('script');
